@@ -3,7 +3,7 @@ name: Run Daily Random Fact Script
 # This will run the workflow on a schedule (using cron syntax).
 on:
   schedule:
-    # Runs once every day at 8 AM CST / 9 AM CDT (2 PM UTC)
+    # Runs at 8 AM CST / 9 AM CDT (2 PM UTC) every day
     - cron: '0 14 * * *'  # 2 PM UTC (which is 8 AM CST / 9 AM CDT)
 
 # Define the jobs to run
@@ -20,14 +20,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # You can specify the version you need
+          python-version: '3.x'  # Specify the version you want
 
-      # Step 3: Install dependencies from requirements.txt
-      - name: Install dependencies
+      # Step 3: Install requests package using pip
+      - name: Install requests package
         run: |
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          fi
+          pip install requests
 
       # Step 4: Run the Python script
       - name: Run daily_random_facts.py
