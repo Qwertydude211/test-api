@@ -1,12 +1,13 @@
 name: Run Daily Random Fact Script
 
-# This will run the workflow on a schedule (using cron syntax).
+# Allow manual triggering
 on:
   schedule:
     # Runs at 8 AM CST / 9 AM CDT (2 PM UTC) every day
     - cron: '0 14 * * *'  # 2 PM UTC (which is 8 AM CST / 9 AM CDT)
+  # Add manual trigger option
+  workflow_dispatch:
 
-# Define the jobs to run
 jobs:
   run-script:
     runs-on: ubuntu-latest  # Use the latest version of Ubuntu
