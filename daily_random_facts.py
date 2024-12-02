@@ -19,7 +19,7 @@ def get_random_dad_joke():
 # Function to send the dad joke to Discord
 def send_joke_to_discord(joke):
     data = {
-        "content": f"Good morning! 😂 Here's a dad joke for you: {joke} This joke is automated, so no guarantees!"  # Format the joke to be sent in Discord
+        "content": f"Good morning! 🎄 Here's a dad joke for you: {joke} This joke is automated, so no guarantees!"  # Format the joke to be sent in Discord
     }
 
     response = requests.post(WEBHOOK_URL, json=data)
